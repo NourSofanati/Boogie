@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.slim.js"></script>
 
     <title>Boogie</title>
 </head>
@@ -14,13 +15,24 @@
 <body>
     <div class="c1">
         <h1>Boogie - A multiplayer music/artist guessing game.</h1>
-   
-    <p>play & compete in solo or team modes against other players online, make your lobby, choose a mode from tens of different
-        modes, language and type of the music and start paving your way to our leaderboards!</p>
-    <button>
-        Sign up mailing list
-    </button>
- </div>
+
+        <p>play & compete in solo or team modes against other players online, make your lobby, choose a mode from tens of different
+            modes, language and type of the music and start paving your way to our leaderboards!</p>
+        <button>
+            Sign up mailing list
+        </button>
+    </div>
+    <script>
+        const server = "127.0.0.1:550";
+        const options = {
+            rememberUpgrade: true,
+            transports: ['websocket'],
+            secure: true,
+            rejectUnauthorized: false
+        };
+        const connection = io.connect(server,options);
+
+    </script>
 </body>
 
 </html>
