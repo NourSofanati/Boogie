@@ -1,19 +1,5 @@
 /* Track */
-::scrollbar-track {
-  box-shadow: inset 0 0 5px grey;
-  border-radius: 10px;
-}
 
-/* Handle */
-::scrollbar-thumb {
-  background: red;
-  border-radius: 10px;
-}
-
-/* Handle on hover */
-::scrollbar-thumb:hover {
-  background: #b30000;
-}
 
 button {
   border-radius: 20px;
@@ -45,7 +31,7 @@ button:active {
 
 form {
   box-sizing: border-box;
-
+  background: white;
   border-radius: 20px;
   -webkit-border-radius: 20px;
   -moz-border-radius: 20px;
@@ -54,21 +40,17 @@ form {
   box-shadow: inset 0 0 5px black;
   display: flex;
   padding: 5px;
-
-  input:focus {
-    #msgenter {
-      box-shadow: inset 0 0 10px black;
-      transition: 0.1s;
-      -webkit-transition: 0.1s;
-      -moz-transition: 0.1s;
-      -ms-transition: 0.1s;
-      -o-transition: 0.1s;
-      background-color: rgb(241, 207, 241);
-    }
-  }
 }
 
-
+.focused {
+  box-shadow: inset 0 0 10px black;
+  transition: 0.1s;
+  -webkit-transition: 0.1s;
+  -moz-transition: 0.1s;
+  -ms-transition: 0.1s;
+  -o-transition: 0.1s;
+  background-color: rgb(241, 207, 241);
+}
 
 form input {
   flex-grow: 1;
@@ -76,7 +58,7 @@ form input {
   padding: 25px;
   background: none;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 1.2rem;
+  font-size: 0.8rem;
 }
 
 #chat {
@@ -84,7 +66,7 @@ form input {
   bottom: 0;
   left: 0;
   right: 0;
-  margin: 10px;
+  margin: 10px 30%;
 
 }
 
@@ -94,24 +76,44 @@ form input {
 
 #chatwindow {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: rgba(128, 128, 128, 0.294);
+  background: none;
   padding: 10px;
   box-sizing: border-box;
   margin-bottom: 5px;
   border-radius: 15px;
+  height: 300px;
+  overflow-y: scroll;
+  z-index: 5;
+  -webkit-mask-image: -webkit-gradient(linear, left bottom, left top, from(rgba(0, 0, 0, 1)), to(rgba(0, 0, 0, .55)));
   -webkit-border-radius: 15px;
   -moz-border-radius: 15px;
   -ms-border-radius: 15px;
   -o-border-radius: 15px;
-  height: 30vh;
-  overflow: scroll;
+}
+
+#chatwindow::-webkit-scrollbar {
+  width: 6px;
+  z-index: 1;
+}
+
+/* Handle */
+#chatwindow::-webkit-scrollbar-thumb {
+  width: 6px;
+  background-color: purple;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
 }
 
 
 
+
 .chatmessage {
-  background: whitesmoke;
-  padding: 2px;
+  background: purple;
+  color: white;
+  padding: 5px 15px;
   box-sizing: border-box;
   margin-bottom: 5px;
   border-radius: 15px;
@@ -119,4 +121,44 @@ form input {
   -moz-border-radius: 15px;
   -ms-border-radius: 15px;
   -o-border-radius: 15px;
+}
+
+.chatmessage>* {
+  margin: 0;
+  padding: 0;
+  font-size: 1rem;
+}
+
+.player * {
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+}
+
+.player {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+}
+
+.player img {
+  
+  width: 100%;
+  object-position: center;
+  object-fit: contain;
+  border-radius: 100%;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  -ms-border-radius: 100%;
+  -o-border-radius: 100%;
+}
+
+.player h1 {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 400;
+  margin: auto;
+  font-size: 18px;
+  opacity: .8;
 }
