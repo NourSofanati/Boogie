@@ -89,6 +89,7 @@ form input {
   -moz-border-radius: 15px;
   -ms-border-radius: 15px;
   -o-border-radius: 15px;
+  scroll-behavior: smooth;
 }
 
 #chatwindow::-webkit-scrollbar {
@@ -161,4 +162,8 @@ form input {
   margin: auto;
   font-size: 18px;
   opacity: .8;
+}
+
+.green{
+  background: #239021;
 }

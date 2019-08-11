@@ -1,25 +1,25 @@
 <canvas height="200px" width="200px"></canvas>
 
 <canvas id="canvas"></canvas>
-<div id="info">-loading-</div>
-
-<div class="player">
-  <img src="https://f4.bcbits.com/img/a2229891706_16.jpg" alt="">
-  <h1>player1</h1>
+<div id="players">
+  <div class="player" *ngFor="let user of users">
+    <img src="https://f4.bcbits.com/img/a2229891706_16.jpg" alt="">
+    <h1>{{user.username}}</h1>
+  </div>
 </div>
 <div id="chat">
   <div id="chatwindow">
-    <div class="chatmessage" *ngFor="let c of count">
-      <h1 class="username">Username <span>👑</span></h1>
-      <p>Lorem ipsum dolor sit amet.</p>
+    <div class="chatmessage {{msg.background}}" *ngFor="let msg of messages">
+      <h1 class="username">{{msg.username}}<span></span></h1>
+      <p>{{msg.msg}}</p>
     </div>
-
   </div>
   <form id="msgenter">
-    <input type="text" name="chatmessage" id="chatmessage" autocomplete="off">
+    <input type="text" name="chatmessage" id="chatmessage" required autocomplete="off">
     <button type="submit" class="btn btn-primary">
       <i class="fas fa-paper-plane"></i>
     </button>
     <h1></h1>
   </form>
 </div>
+<audio src={{musiclink}} autoplay></audio>
